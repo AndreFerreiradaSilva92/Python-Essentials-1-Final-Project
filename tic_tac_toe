@@ -24,6 +24,8 @@ def enter_move(board):
                 for j in range(3):
                     if board[i][j] == move:
                         board[i][j] = 'X'
+                        return
+            print("That square is already taken. Please choose another one.")            
         else:
             print("Invalid move. Please enter a number between 1 and 9.")
 
