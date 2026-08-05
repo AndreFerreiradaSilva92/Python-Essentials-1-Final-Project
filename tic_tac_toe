@@ -23,7 +23,7 @@ def enter_move(board):
             for i in range(3):
                 for j in range(3):
                     if board[i][j] == move:
-                        board[i][j] = 'X'
+                        board[i][j] = 'O'
                         return
             print("That square is already taken. Please choose another one.")            
         else:
@@ -57,6 +57,23 @@ def draw_move(board):
     free_fields = make_list_of_free_fields(board)
     if free_fields:
         move = free_fields[randrange(len(free_fields))]
-        board[move[0]][move[1]] = 'O'       
-    
-display_board(board)
+        board[move[0]][move[1]] = 'X' 
+
+board[1][1] = 'X'
+while True:
+    display_board(board)
+    enter_move(board)
+    if victory_for(board, 'X'):
+        print("Congratulations! You have won the game!")
+        break
+    if not make_list_of_free_fields(board):
+        print("It's a tie!")
+        break
+    draw_move(board)
+    display_board(board)
+    if victory_for(board, 'O'):
+        print("The computer has won the game!")
+        break
+    if not make_list_of_free_fields(board):
+        print("It's a tie!")
+        break
