@@ -63,17 +63,20 @@ board[1][1] = 'X'
 while True:
     display_board(board)
     enter_move(board)
-    if victory_for(board, 'X'):
+    if victory_for(board, 'O'):
+        display_board(board)
         print("Congratulations! You have won the game!")
         break
     if not make_list_of_free_fields(board):
+        display_board(board)
         print("It's a tie!")
         break
     draw_move(board)
-    display_board(board)
-    if victory_for(board, 'O'):
+    if victory_for(board, 'X'):
+        display_board(board)
         print("The computer has won the game!")
         break
     if not make_list_of_free_fields(board):
+        display_board(board)
         print("It's a tie!")
         break
