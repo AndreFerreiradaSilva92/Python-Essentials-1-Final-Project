@@ -54,6 +54,9 @@ def victory_for(board, sign):
 
 def draw_move(board):
     # The function draws the computer's move and updates the board.
-    pass
+    free_fields = make_list_of_free_fields(board)
+    if free_fields:
+        move = free_fields[randrange(len(free_fields))]
+        board[move[0]][move[1]] = 'O'       
     
 display_board(board)
